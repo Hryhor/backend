@@ -33,7 +33,8 @@ builder.Services.AddCors(options =>
                                "http://localhost:3002",
                                "http://localhost:3003",
                                "http://localhost:5173",
-                               "https://localhost:7188")
+                               "https://localhost:7188",
+                               "https://sommentapp.onrender.com")
                                 .AllowAnyHeader()
                                 .AllowAnyMethod()
                                 .AllowCredentials();
