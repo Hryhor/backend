@@ -18,7 +18,6 @@ using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
-var frontendUrls = builder.Configuration["AllowedOrigins"]?.Split(';') ?? Array.Empty<string>();
 
 // Add services to the container.
 Log.Logger = new LoggerConfiguration().MinimumLevel.Debug()
@@ -31,7 +30,12 @@ builder.Services.AddCors(options =>
     options.AddPolicy(MyAllowSpecificOrigins,
         policy =>
         {
-            policy.WithOrigins(frontendUrls)
+            policy.WithOrigins("http://localhost:3000",
+                               "http://localhost:3002",
+                               "http://localhost:3003",
+                               "http://localhost:5173",
+                               "https://localhost:7188",
+                               "https://commentsapp-fpql.onrender.com")
                                 .AllowAnyHeader()
                                 .AllowAnyMethod()
                                 .AllowCredentials();
