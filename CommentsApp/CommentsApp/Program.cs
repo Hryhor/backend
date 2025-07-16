@@ -161,13 +161,13 @@ if (!Directory.Exists(uploadsPath))
 
 app.Urls.Clear();
 app.Urls.Add("http://0.0.0.0:7265");
-
+*/
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
     db.Database.Migrate();
 }
-*/
+
 app.Run();
 
 
