@@ -67,7 +67,7 @@ namespace CommentsApp.Controllers
                 }
 
                 var token = await _userManager.GenerateEmailConfirmationTokenAsync(registerResult.applicationUser);
-                var confirmationLink = Url.Action("ConfirmEmail", "Auth", new { userId = registerResult.applicationUser.Id, token = token }, Request.Scheme);
+                //var confirmationLink = Url.Action("ConfirmEmail", "Auth", new { userId = registerResult.applicationUser.Id, token = token }, Request.Scheme);
 
                 var cookieOptions = new CookieOptions
                 {
@@ -78,7 +78,7 @@ namespace CommentsApp.Controllers
                 };
 
                 Response.Cookies.Append("refreshToken", registerResult.RefreshToken, cookieOptions);
-                await _emailService.SendEmailAsync(registerResult.applicationUser.Email, "Подтверждение почты", $"Перейдите по следующей ссылке для подтверждения: {confirmationLink}");
+                //await _emailService.SendEmailAsync(registerResult.applicationUser.Email, "Подтверждение почты", $"Перейдите по следующей ссылке для подтверждения: {confirmationLink}");
 
                 _response.Result = new RegisterResponseDTO
                 {
