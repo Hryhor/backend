@@ -35,7 +35,8 @@ builder.Services.AddCors(options =>
                                "http://localhost:3003",
                                "http://localhost:5173",
                                "https://localhost:7188",
-                               "https://commentsapp-fpql.onrender.com")
+                               "https://commentsapp-fpql.onrender.com",
+                               "https://commentsapp-nqo2.onrender.com")
                                 .AllowAnyHeader()
                                 .AllowAnyMethod()
                                 .AllowCredentials();
